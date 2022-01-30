@@ -5,12 +5,12 @@
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	
-	 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+	 <link href="https://xtuality-app.herokuapp.com/css/style.css" rel="stylesheet">
 
 	 <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
 	<!--favicon-->
-	<link rel="shortcut icon" type="img/png/jpg" href="{{ asset('images/logo2.png')}}">
+	<link rel="shortcut icon" type="img/png/jpg" href="https://xtuality-app.herokuapp.com/images/logo2.png">
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 	
 	<!-- Font Awesome -->
