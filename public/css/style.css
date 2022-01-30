@@ -1,0 +1,53 @@
+
+/*universal initial setting*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	max-height: 100%;
+	max-width: 100vw;
+	font-family: Lora, serif;
+	font-size: 15px;
+	line-height: 25px;
+	/*color: #D6B9AD;*/
+}
+
+#content{
+	min-height: 100vh;
+	/*background-color: green;*/
+	 /* The image used */
+    background-image: url("../images/btc1.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	color: #EDCDBB;
+	text-align: center;
+	
+}
+
+hr{
+	border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #EDCDBB; /* old IE */
+    background-color: #EDCDBB; /* Modern Browsers */
+}
+
+.container-fluid{
+	padding-top: 20px;
+}
+
+#network-radio-container, #submit-button-container{
+	text-align: left;
+}
+
+.required{
+	color: red;
+}

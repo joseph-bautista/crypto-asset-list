@@ -8,17 +8,16 @@
 
 </head>
 <body>
-<div class="wrapper" id="back">
+<div class="wrapper">
 	
-		<div id="content">
-			{{-- @include('partials.nav') --}}
-		   <div class="container-fluid">
-		   	<div id="navspace"></div>
+	<div id="content">
+		{{-- @include('partials.nav') --}}
+	  <div class="container-fluid">
 			<div class="container">
 				@yield('content')
-		  	</div>
-		  </div>
-		</div>
+	  	</div>
+	  </div>
+	</div>
 </div>
 
 <!-- <script type="text/javascript" src="/js/script.js"></script> -->
