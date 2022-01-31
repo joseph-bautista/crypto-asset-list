@@ -237,6 +237,8 @@
                 if(data){
                     // alert(data);
                     window.location.reload();
+                }else{
+                    alert("Invalid Contract Address")
                 }
             });
         },

@@ -21,6 +21,8 @@ class WalletController extends Controller
         //
         // https://api.bscscan.com/api?module=contract&action=getsourcecode&address=0xe4fae3faa8300810c835970b9187c268f55d998f&apikey=MB7I7YDQG7GGEFM6CHFF1IQYPMQV7N5B57
 
+        // https://api.bscscan.com/api?module=account&action=addresstokenbalance&address=0x99817ce62abf5b17f58e71071e590cf958e5a1bf&page=1&offset=100&apikey=YourApiKeyToken
+
 
        
 

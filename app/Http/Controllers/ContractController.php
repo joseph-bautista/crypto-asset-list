@@ -45,17 +45,27 @@ class ContractController extends Controller
         if($network->name == 'ERC20'){
             $apiKey = "PV24NRRVMTC4DBF9K6SYQ6Q7SS1328YMUA";
             $contract_response = Http::get("https://api.etherscan.io/api?module=contract&action=getsourcecode&address=".$request->contractAddress."&apikey=".$apiKey);
-            $asset_response = Http::get("https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=".$request->contractAddress."&address=".$request->walletAddress."&tag=latest&apikey=".$apiKey);
+            $contractData = $contract_response->json();
+            if($contractData["result"] == "Invalid Address format" || $contractData["result"][0]["ContractName"] == ''){
+                return false;
+            }else{
+                $asset_response = Http::get("https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=".$request->contractAddress."&address=".$request->walletAddress."&tag=latest&apikey=".$apiKey);
+                $assetData = $asset_response->json();
+            }
         }else if($network->name == 'BEP20'){
             $apiKey = "MB7I7YDQG7GGEFM6CHFF1IQYPMQV7N5B57";
             $contract_response = Http::get("https://api.bscscan.com/api?module=contract&action=getsourcecode&address=".$request->contractAddress."&apikey=".$apiKey);
-            $asset_response = Http::get("https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=".$request->contractAddress."&address=".$request->walletAddress."&tag=latest&apikey=".$apiKey);
-
+            $contractData = $contract_response->json();
+            // dd($contractData);
+            if($contractData["result"] == "Invalid Address format" || $contractData["result"][0]["ContractName"] == ''){
+                return false;
+            }else{
+                $asset_response = Http::get("https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=".$request->contractAddress."&address=".$request->walletAddress."&tag=latest&apikey=".$apiKey);
+                $assetData = $asset_response->json();
+            }
 
         }
 
-        $contractData = $contract_response->json();
-        $assetData = $asset_response->json();
 
         $quantity = number_format(((float)$assetData["result"]/1000000000000000000),2,'.','');
 
