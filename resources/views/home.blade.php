@@ -198,7 +198,7 @@
                 method : 'post',
                 data : {walletAddress : walletAddress},
             }).done( data =>{
-                console.log(data);
+                
             });
 
             
@@ -217,7 +217,6 @@
                 });
 
                 $("#assetList").html(assetListhtml);
-                console.log(data);
             });
         },
 
@@ -227,15 +226,12 @@
             var contractAddress = $("#contract_address").val();
 
             var walletAddress = $("#walletAddress").text();
-            // var walletAddress = "0x64b9cD0086af02990dB6C775c0375c77BbB30E21";
             $.ajax({
                 url : '/add/contract_address',
                 method : 'post',
                 data : {contractAddress : contractAddress, networkValue:networkValue, walletAddress:walletAddress},
             }).done( data =>{
-                console.log(data);
                 if(data){
-                    // alert(data);
                     window.location.reload();
                 }else{
                     alert("Invalid Contract Address")

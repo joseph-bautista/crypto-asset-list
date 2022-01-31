@@ -18,16 +18,11 @@ class WalletController extends Controller
      */
     public function index()
     {
-        //
-        // https://api.bscscan.com/api?module=contract&action=getsourcecode&address=0xe4fae3faa8300810c835970b9187c268f55d998f&apikey=MB7I7YDQG7GGEFM6CHFF1IQYPMQV7N5B57
-
-        // https://api.bscscan.com/api?module=account&action=addresstokenbalance&address=0x99817ce62abf5b17f58e71071e590cf958e5a1bf&page=1&offset=100&apikey=YourApiKeyToken
-
-
-       
+        
+        //sample of API endpoint that will list token holdings but not free
+        // https://api.bscscan.com/api?module=account&action=addresstokenbalance&address=0x99817ce62abf5b17f58e71071e590cf958e5a1bf&page=1&offset=100&apikey=YourApiKeyToken       
 
         $networks = DB::table('networks')->get();
-        // dd($networks);
         return view('home', compact('networks'));
 
     }
@@ -72,6 +67,9 @@ class WalletController extends Controller
     {
 
         $wallet = DB::table('wallets')->where('address', $walletAddress)->first();
+
+        //Tried different approach as heroku do not read aliases in the query
+
         // $assets = DB::table('holdings as h')
         //     ->select('c.name as contract_name', 'h.quantity', 'n.name as network_name')
         //     ->join('networks as n', 'n.id', '=', 'h.network_id')
