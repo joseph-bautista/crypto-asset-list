@@ -70,11 +70,13 @@ class WalletController extends Controller
     {
 
         $wallet = DB::table('wallets')->where('address', $walletAddress)->first();
-        $assets = DB::table('holdings as h')
-            ->select('c.name as contract_name', 'h.quantity', 'n.name as network_name')
-            ->join('networks as n', 'n.id', '=', 'h.network_id')
-            ->join('contracts as c', 'c.id', '=', 'h.contract_id')
-            ->where('h.wallet_id', $wallet->id)->get();
+        // $assets = DB::table('holdings as h')
+        //     ->select('c.name as contract_name', 'h.quantity', 'n.name as network_name')
+        //     ->join('networks as n', 'n.id', '=', 'h.network_id')
+        //     ->join('contracts as c', 'c.id', '=', 'h.contract_id')
+        //     ->where('h.wallet_id', $wallet->id)->get();
+
+        $assets = DB::select("SELECT h.quantity, n.name AS network_name, c.name AS contract_name FROM holdings AS h INNER JOIN networks AS n ON n.id = h.network_id INNER JOIN contracts AS c ON c.id = h.contract_id WHERE h.wallet_id = $wallet->id");
 
             // dd($assets);
         // return view('home', compact('assets'));
