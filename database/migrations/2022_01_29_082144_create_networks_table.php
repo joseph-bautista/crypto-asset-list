@@ -16,6 +16,7 @@ class CreateNetworksTable extends Migration
         Schema::create('networks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('api_key');
             $table->timestamps();
         });
     }

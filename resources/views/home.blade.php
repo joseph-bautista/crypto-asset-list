@@ -1,13 +1,13 @@
 @extends('template')
 
-@section('title', 'Xtuality Home')
+@section('title', 'Xctuality Home')
 
 @section('content')
 
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1>Xtuality Assignment <button type="button" class="btn btn-primary" id="connectWallet">Connect Wallet</button></h1>
+		<h1>Xctuality Assignment <button type="button" class="btn btn-primary" id="connectWallet">Connect Wallet</button></h1>
 		
 
         <p id="walletAddressContainer"><strong>Wallet Address:</strong> <span id="walletAddress"></span></p>

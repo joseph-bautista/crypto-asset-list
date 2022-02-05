@@ -15,11 +15,18 @@ class CreateHoldingsTable extends Migration
     {
         Schema::create('holdings', function (Blueprint $table) {
             $table->id();
-            $table->string('wallet_id');
-            $table->string('contract_id');
+            $table->unsignedBigInteger('wallet_id'); 
+            $table->unsignedBigInteger('contract_id');
             $table->string('quantity');
-            $table->string('network_id');
+            $table->unsignedBigInteger('network_id');
             $table->timestamps();
+            
+        });
+
+        Schema::table('holdings', function($table) {
+            $table->foreign('wallet_id')->references('id')->on('wallets')->onDelete('cascade');
+            $table->foreign('contract_id')->references('id')->on('contracts')->onDelete('cascade');
+            $table->foreign('network_id')->references('id')->on('networks')->onDelete('cascade');
         });
     }
 

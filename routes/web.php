@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-Route::get('/', 'App\Http\Controllers\WalletController@index');
+
+Route::get('/', 'App\Http\Controllers\NetworkController@index');
 Route::post('/add/wallet_address', 'App\Http\Controllers\WalletController@store');
 Route::get('/show/assets/{wallet_address}', 'App\Http\Controllers\WalletController@show_assets');
 

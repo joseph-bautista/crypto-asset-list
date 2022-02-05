@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Wallet extends Model
 {
     use HasFactory;
+
+    public function holdings()
+    {
+        return $this->hasMany('App\Models\Holding');
+    }
 }
